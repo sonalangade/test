@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<script
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+<!--
+   1.html
+
+   Copyright 2018 Unknown <Sonal@localhost.localdomain>
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along wi                 JSON.stringify()
+th this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+
+
+-->
+
+<head>
+<meta charset="utf-8" />
+<title>untitled</title>
+<meta name="generator" content="Geany 1.31" />
+
+</head>
+
+<body>
+
+
+<title>Form example</title>
+<script type="text/javascript">
+  function getFormInfo() {
+    var info;
+
+    // Get a reference using the forms collection
+    var f = document.forms["formA"];
+    info = "f.elements: " + f.elements + "\n"
+         + "f.length: " + f.length + "\n"
+         + "f.name: " + f.name + "\n"
+         + "f.acceptCharset: " + f.acceptCharset + "\n"
+         + "f.action: " + f.action + "\n"
+         + "f.enctype: " + f.enctype + "\n"
+         + "f.encoding: " + f.encoding + "\n"
+         + "f.method: " + f.method + "\n"
+         + "f.target: " + f.target;
+    document.forms["formA"].elements['tex'].value = info;
+  }
+
+
+  function setFormInfo(f) {
+    f.method = "GET";
+    f.action = "/cgi-bin/evil_executable.cgi";
+    f.name   = "totally_new";
+  }
+
+
+
+</script>
+
+<h1>Form  example</h1>
+
+<form name="formA" id="formA"
+ action="/cgi-bin/test" method="POST">
+ <p>Click "Info" to see information about the form.
+    Click set to change settings, then info again
+    to see their effect</p>
+ <p>
+  <input type="button"value="info"
+   onclick="getFormInfo();">
+  <input type="button" value="set"
+   onclick="setFormInfo(this.form);">
+  <input type="reset" value="reset">
+  <br>
+  <textarea id="tex" style="height:15em; width:20em">
+  </textarea>
+ </p>
+</form>
+</html>
